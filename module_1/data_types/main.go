@@ -21,12 +21,12 @@ func main() {
 	fmt.Printf("decimal number: %.3f\n", decimalNum)
 
 	// Bool cuma true false as usual
-	var apakahBenul = false
+	apakahBenul := false
 	fmt.Println("Apakah benul?", apakahBenul)
 
 	// String
 	// Coba string panjang
-	var message = `When i see you smile i
+	message := `When i see you smile i
 	can face za warudo. 
 	owoooooo`
 
