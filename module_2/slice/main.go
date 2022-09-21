@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	// ! Slice merupakan tipe data yang mirip array namun tidak memiliki fixed-length, dan merupakan kategori reference type
+	// ! Slice merupakan tipe data yang mirip array namun tidak memiliki fixed-length, dan merupakan kategori reference type dimana Ia memiliki memory address reference yang saat di assign ke variabel baru dan variabel tersebut diganti dapat mempengaruhi slice sebelumnya.
 
 	// * Slice ver.1
 	var fruits = []string{"Melon", "Lemon", "Grape", "Cherry"}
@@ -74,6 +74,11 @@ func main() {
 	fmt.Println("Slice 1 =>", cobaBackingArray)
 	fmt.Println("Slice 2 =>", backingSlice)
 
+	// * Check memory address sama mulai dari index 1 yang diambil
+	fmt.Printf("memory adress cobaBackingArray[1] => %p\n", &cobaBackingArray[1])
+
+	fmt.Printf("memory adress backingSlice[0] => %p\n", &backingSlice[0])
+
 	// * Slice (cap function, digunakan untuk menghitung kapasitas slice)
 	cobaCapSlice := []string{"Naufal", "Aldy", "Pradana", "Ganteng"}
 	fmt.Println("cobaCapSlice cap:", cap(cobaCapSlice)) //4
@@ -83,9 +88,12 @@ func main() {
 	fmt.Println("sliceOfCap1 cap:", cap(sliceOfCap1)) //4
 	fmt.Println("sliceOfCap2 len:", len(sliceOfCap1)) //3
 
+	// * Ternyata data capacity disimpan di index ke-0, maka karena di bawah ini diambil dari index ke-1, kapasitas menjadi 3 karena ada 3 data setelah index ke-0
 	sliceOfCap2 := cobaCapSlice[1:]
 	fmt.Println("sliceOfCap2 cap:", cap(sliceOfCap2)) //3
 	fmt.Println("sliceOfCap2 len:", len(sliceOfCap2)) //3
+
+	// * Tambahan catatan capacity: apabila slice di append sebuah element baru, capacity dari slice akan dikuadratkan/kali 2 ya tadi? nanti dicoba ajh agar tidak perlu membuat Slice Header yang baru.
 
 	// Kenapa sliceOfCap2 memiliki kapasitas lebih sedikit dari sliceOfCap1? dapat diilustrasikan sebagai berikut hasil sliceOfCap1 = ["Naufal", "Aldy", "Pradana", ...]
 	// sliceOfCap2 = [..., "Aldy", "Pradana", "Ganteng"] karena sliceOfCap1 mengambil dari index 1, sehingga masih tersisa 1 kapasitas terakhir pada index terakhir, sedangkan pada sliceOfCap2 slice dimulai hitung dari index ke x pada [x:y] sehingga menyebabkan kapasitas berubah.
@@ -102,5 +110,4 @@ func main() {
 	// Setelah index 0 diganti tidak mempengaruhi newCars
 	fmt.Println("cars:", cars)
 	fmt.Println("newCars:", newCars)
-
 }

@@ -31,6 +31,8 @@ func main() {
 	}
 
 	// * Multidimensional Array
+	// cara baca muldimension array = length dari array yaitu 2,
+	// dan dalaman dari array tersebut ada 3
 	balances := [2][3]int{{5, 6, 7}, {8, 9, 10}}
 
 	for _, arr := range balances {
@@ -40,5 +42,9 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	fmt.Println("Multi array len", len(balances))
+	// ambil nilai index 0 nilai ke 1 dari multi array
+	fmt.Println("Value", balances[0])
 
 }

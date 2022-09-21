@@ -38,7 +38,7 @@ func main() {
 		}
 	}
 
-	// ! Nested conditions
+	// ! Nested conditions (if + switch)
 	var score2 = 10
 
 	if score2 > 7 {

@@ -26,7 +26,7 @@ func main() {
 	fmt.Printf("decimal number: %f\n", decimalNum)
 	fmt.Printf("decimal number: %.3f\n", decimalNum)
 
-	// *Bool cuma true false as usual
+	// * Bool cuma true false as usual
 	apakahBenul := false
 	fmt.Println("Apakah benul?", apakahBenul)
 
