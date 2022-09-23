@@ -88,7 +88,7 @@ func main() {
 	fmt.Println("sliceOfCap1 cap:", cap(sliceOfCap1)) //4
 	fmt.Println("sliceOfCap2 len:", len(sliceOfCap1)) //3
 
-	// * Ternyata data capacity disimpan di index ke-0, maka karena di bawah ini diambil dari index ke-1, kapasitas menjadi 3 karena ada 3 data setelah index ke-0
+	// * Ternyata data capacity disimpan di index ke-0, maka karena di bawah ini diambil dari index ke-1, kapasitas menjadi 3 karena ada 3 data setelah index ke-0, apabila ada 5 data dan yang diambil ada 3 maka kapasitasnya tetap dihitung 5
 	sliceOfCap2 := cobaCapSlice[1:]
 	fmt.Println("sliceOfCap2 cap:", cap(sliceOfCap2)) //3
 	fmt.Println("sliceOfCap2 len:", len(sliceOfCap2)) //3

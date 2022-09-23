@@ -21,4 +21,13 @@ func main() {
 	// Variable hour bertipe data second dimana aslinya merupakan sebuah uint
 	var hour second = 3600
 	fmt.Printf("hour type: %T\n", hour) // => hour type: uint
+
+	// * Penulisan object mirip javascript menggunakan alias
+	type object = map[string]string
+
+	var person object = object{
+		"name": "Aldy",
+		"age":  "20",
+	}
+	fmt.Println(person) // => map[age:20 name:Aldy]
 }

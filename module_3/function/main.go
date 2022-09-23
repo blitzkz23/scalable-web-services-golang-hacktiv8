@@ -28,12 +28,12 @@ func main() {
 
 	fmt.Println(strings.Repeat("#", 50))
 	fmt.Println("Variadic function")
-	fmt.Println(print("Aldy", "Budi", "Caca"))
+	fmt.Println(printVariadic("Aldy", "Budi", "Caca"))
 	fmt.Println("Variadic function 2")
 	numberList := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	fmt.Println(sum(numberList...))
+	fmt.Println(sumVariadic(numberList...))
 	fmt.Println("Variadic function 3")
-	profile("Aldy", "Nasi Goreng", "Sate", "Bakso")
+	profileVariadic("Aldy", "Nasi Goreng", "Sate", "Bakso")
 }
 
 // * Normal function
@@ -77,7 +77,7 @@ func calculate2(d float64) (area, circumference float64) {
 // * Variadic function, function yang memiliki parameter yang tidak terbatas
 // tanda ... pada parameter menandakan fungsi ini adalah variadic
 // parameter string yang diterima akan dikonversi menjadi slice yang mengandung tipe data map sehingga bisa diloop untuk mendapatkan key dan valuenya
-func print(names ...string) []map[string]string {
+func printVariadic(names ...string) []map[string]string {
 	var result []map[string]string
 
 	for i, v := range names {
@@ -92,7 +92,7 @@ func print(names ...string) []map[string]string {
 }
 
 // * Contoh variadic 2
-func sum(numbers ...int) int {
+func sumVariadic(numbers ...int) int {
 	total := 0
 
 	for _, v := range numbers {
@@ -102,7 +102,7 @@ func sum(numbers ...int) int {
 }
 
 // * Contoh variadic 3 menggabungkan parameter biasa dan variadic
-func profile(name string, favFoods ...string) {
+func profileVariadic(name string, favFoods ...string) {
 	mergeFavFoods := strings.Join(favFoods, ", ")
 
 	fmt.Printf("My name is %s and my favorite foods are %s", name, mergeFavFoods)

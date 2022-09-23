@@ -68,4 +68,11 @@ outerLoop: // ini labelnya
 		}
 		fmt.Println()
 	}
+
+	// * Looping dari belakang
+	fmt.Println("Looping dari belakang")
+	orang := []string{"Aldy", "Budi", "Caca", "Dedi", "Euis"}
+	for i := len(orang) - 1; i >= 0; i-- {
+		fmt.Println(orang[i])
+	}
 }

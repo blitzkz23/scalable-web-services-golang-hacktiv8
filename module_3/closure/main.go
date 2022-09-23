@@ -47,6 +47,12 @@ func main() {
 	// find adalah closure yang direturn function findstudent, dimana Ia menerima parameter string dan mereturn string
 	fmt.Println(findStudent("Aldy"))
 
+	// * Closure as return value 2
+	fmt.Println(strings.Repeat("#", 50))
+	// ini balikanya function sehingga harus diinvoke lagi di bawah
+	var countName func(name string) int = countByte()
+	fmt.Println(countName("Aldy"))
+
 	// * Closure (Callback), merupakan closure yang dijadikan sebagai parameter sebuah function
 	fmt.Println(strings.Repeat("#", 50))
 	var numbers2 = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
@@ -76,6 +82,13 @@ func findStudent(students []string) func(string) string {
 			return fmt.Sprintf("%s does'nt exist!", s)
 		}
 		return fmt.Sprintf("%s is at  %d", student, position+1)
+	}
+}
+
+// * Closure as return value 2
+func countByte() func(name string) int {
+	return func(name string) int {
+		return len(name)
 	}
 }
 

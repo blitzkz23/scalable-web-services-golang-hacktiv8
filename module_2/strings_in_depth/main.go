@@ -7,6 +7,7 @@ import (
 
 func main() {
 	// ! Tipe data string pada Go terbentuk dari kumpulan tipe data byte yang di letakkan di dalam slice atau bisa kita sebutdengan slice of bytes.Tipe data byte pada Go merupakan tipe data alias dari tipe data uint8.
+	// Kalau di golang, string merupakan slice of byte string = []byte
 
 	word := "Cyberpunk"
 
@@ -35,6 +36,21 @@ func main() {
 	// ! atau bisa juga menggunakan range loop untuk loop range-per-range, dan bahkan pada loop ini index pada looping langsung lompat 2 dari 1 ke 3, ini karena â terdiri dari 2 byte.
 	for index, value := range str2 {
 		fmt.Printf("index => %d, string => %s\n", index, string(value))
+	}
+
+	// * Decode string to slice of bytes, dimana bytes adalah gabungan dari karakter
+	var katak string = "kâtak"
+	var decodeKatak = []byte(katak)
+	var katakToRune []rune = []rune(katak)
+
+	fmt.Println("decodeKatak =>", decodeKatak)
+	fmt.Println("katakToRune =>", katakToRune)
+	fmt.Println("length of bytes =>", len(decodeKatak))
+	fmt.Println("length of rune =>", len(katakToRune))
+
+	// * Semisal ada soal palingdrom di golang, jangan langsung loop stringnya namun didecode dulu menjadi byte baru diconvert ke string().
+	for i := 0; i < len(decodeKatak); i++ {
+		fmt.Println(string(decodeKatak[i]), string(decodeKatak[len(decodeKatak)-1-i]))
 	}
 
 }
