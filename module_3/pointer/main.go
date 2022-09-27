@@ -6,6 +6,7 @@ import (
 )
 
 // ! Pointer merupakan sebuah tipe data yang berisi alamat memory dari sebuah variable.  Contoh, ada variable x yang berisi nilai 10, maka pointer dari x adalah alamat memory dari x bukan nilai x itu sendiri.
+// Pointer banyak digunakan nantti saat membangun API karena saat data tidak ada dia bisa mereturn nilai nil
 func main() {
 	fmt.Println()
 	var firstNumber int = 4
@@ -29,6 +30,7 @@ func main() {
 	fmt.Println("firstPerson (value)", firstPerson)
 	fmt.Println("firstPerson (memory adress)", &firstPerson)
 
+	// Untuk pemanggilan nilai dari pointer, kita bisa menggunakan *secondPerson yang bisa dinamakan dengan dereferencing
 	fmt.Println("secondPerson (value)", *secondPerson)
 	fmt.Println("secondPerson (memory adress)", secondPerson)
 
@@ -47,8 +49,47 @@ func main() {
 	fmt.Println("number (before)", number)
 	changeValue(&number)
 	fmt.Println("number (after)", number)
+
+	// * Function that return pointer
+	fmt.Println(strings.Repeat("#", 50))
+	var person *string = getPerson("Aldy")
+	fmt.Println("person mem. address found =", person)
+	fmt.Println("person value found =", *person)
+	// Coba cari person yang tidak ada
+	var person2 *string = getPerson("Rizkt")
+	// Kalau tidak menggunakan condition akan mengalami panic error saat dereferencing person2
+	if person2 != nil {
+		fmt.Println("person2 mem. address found =", person2)
+		fmt.Println("person2 value found =", *person2)
+	} else {
+		fmt.Println("person2 not found")
+	}
+
+	// * Function that change value based on pointer
+	var name1 string = "Johnson"
+	changeValueName(&name1)
+	fmt.Println("name1 =", name1)
 }
 
 func changeValue(number *int) {
 	*number = 10
+}
+
+// * func yang return pointer dari suatu string
+func getPerson(name string) *string {
+	var students []string = []string{"Aldy", "Naufal", "Rizky"}
+
+	for _, student := range students {
+		if student == name {
+			return &student
+		}
+	}
+
+	// Kembalikan nilai nil jika tidak ada
+	return nil
+}
+
+// * func yang change value berdasar pointer
+func changeValueName(name *string) {
+	*name = "Anon"
 }
