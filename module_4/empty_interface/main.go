@@ -37,4 +37,32 @@ func main() {
 	}
 
 	_, _ = rs, rm
+
+	// * Type switching
+	var sliceData []interface{} = []interface{}{
+		"Naufal",
+		20,
+		true,
+	}
+
+	for index, v := range sliceData {
+		switch value := v.(type) {
+		case int:
+			fmt.Printf("Data %d merupakan sebuah %T dengan nilai %d \n", index, value, value)
+		case string:
+			fmt.Printf("Data %d merupakan sebuah %T dengan nilai %s \n", index, value, value)
+		case bool:
+			fmt.Printf("Data %d merupakan sebuah %T dengan nilai %t \n", index, value, value)
+		default:
+			fmt.Println("Tipe data tidak diketahui")
+		}
+	}
+
+	// * Interface function with variadic parameter
+	receiveRandomData("Naufal", 20, true, 3.14, []string{"Airell", "Ari", "Ariell"})
+}
+
+// * Interface function with variadic parameter
+func receiveRandomData(a ...interface{}) {
+	fmt.Println(a...)
 }

@@ -21,6 +21,8 @@ func main() {
 	time.Sleep(time.Second * 2)
 	fmt.Println("Main Execution Finished")
 
+	fmt.Println(runtime.NumCPU())
+
 }
 
 func firstProcess(index int) {
