@@ -10,12 +10,12 @@ import (
 func main() {
 	fmt.Println()
 	fruits := []string{"apple", "banana", "grape", "orange"}
-	var waitgroup sync.WaitGroup
+	waitgroup := &sync.WaitGroup{}
 
 	for index, fruit := range fruits {
 		// Menambah conuter waitgroup sebanyak jumlah goroutine yang akan dijalankan
 		waitgroup.Add(1)
-		go printFruit(index, fruit, &waitgroup)
+		go printFruit(index, fruit, waitgroup)
 	}
 
 	waitgroup.Wait()
