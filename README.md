@@ -1,27 +1,32 @@
 # Scalable Web Services Golang - Hacktiv8
 
 ## Useful Library
+
 ```
 // Gin gonic (Framework for Rest API)
 go get -u github.com/gin-gonic/gin
 
-// SQL Driver
+// Postgres Driver
 go get -u github.com/lib/pq
 
 // Gorm - ORM Library
-go get -u gorm.io/gorm 
+go get -u gorm.io/gorm
+go get -u "github.com/jinzhu/gorm/dialects/mysql"
 
-// Swagger - Documentation
+// Swaggo - Documentation
 go get -u github.com/swaggo/swag/cmd/swag
 go get -u github.com/swaggo/swag/http-swagger
 go get -u github.com/alecthomas/template
 
+// Gorilla Mux - Gin gonic alternative
+go get -u github.com/gorilla/mux
 
 // Additional notes
 -u = get latest package
 ```
 
 ## Basic Go Command
+
 ```
 // Lihat versi
 go version

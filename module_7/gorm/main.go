@@ -12,12 +12,12 @@ import (
 func main() {
 	database.StartDB()
 
-	// createUser("naufalaldy@gmail.com")
+	createUser("naufalaldy@gmail.com")
 	// updateUserByID(1, "naufal@gmail.com")
 	getUserByID(1)
 	// createProduct(1, "YLO", "YOLY")
-	getUsersWithProducts()
-	deleteProductById(1)
+	// getUsersWithProducts()
+	// deleteProductById(1)
 }
 
 // * Membuat user baru
