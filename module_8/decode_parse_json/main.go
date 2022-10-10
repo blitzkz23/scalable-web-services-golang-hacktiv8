@@ -26,13 +26,14 @@ func main() {
 	var result Employee
 
 	// Codeline dibawah mendecode JSON menjadi struct employee, dengan argumen pertama berupa slice of byte dari json, dan argumen kedua berupa pointer dari variable result.
+	// * Kalau di gin Unmarshal = shoudBindJSON()
 	var err = json.Unmarshal([]byte(jsonString), &result)
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 
-	fmt.Println("JSON to Struct")
+	fmt.Println("JSON to Struct", result)
 	fmt.Println("full_name:", result.FullName)
 	fmt.Println("email:", result.Email)
 	fmt.Println("age:", result.Age)
@@ -52,6 +53,10 @@ func main() {
 	fmt.Println("email:", result2["email"])
 	fmt.Println("age:", result2["age"])
 
+	// * Coba write JSON ke data.json
+	fmt.Println(strings.Repeat("=", 50))
+	fmt.Println("Coba write JSON ke data.json")
+
 	// * Decode json to empty interface
 	var temp interface{}
 
@@ -63,7 +68,7 @@ func main() {
 	// Untuk mengakses data didalam harus di-type assertation menjadi map dengan key string dan value empty interface
 	var result3 = temp.(map[string]interface{})
 
-	fmt.Println("JSON to Empty Interface")
+	fmt.Println("JSON to Empty Interface", result3)
 	fmt.Println(strings.Repeat("#", 50))
 	fmt.Println("full_name:", result3["full_name"])
 	fmt.Println("email:", result3["email"])
