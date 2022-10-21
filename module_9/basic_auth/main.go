@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-// ! Basic auth
+// ! Basic auth untuk menjalankan gunakan go run ., dan curl
 
 func main() {
 	http.HandleFunc("/student", ActionStudent)

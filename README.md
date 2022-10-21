@@ -9,6 +9,9 @@ go get -u github.com/gin-gonic/gin
 // Postgres Driver
 go get -u github.com/lib/pq
 
+// Gorm Postgres Driver
+go get gorm.io/driver/postgres
+
 // Gorm - ORM Library
 go get -u gorm.io/gorm
 go get -u "github.com/jinzhu/gorm/dialects/mysql"
@@ -20,6 +23,16 @@ go get -u github.com/alecthomas/template
 
 // Gorilla Mux - Gin gonic alternative
 go get -u github.com/gorilla/mux
+
+// JWT
+go get -u github.com/dgrijalva/jwt-go
+
+// Cryptography
+go get golang.org/x/crypto
+
+// Testing
+go get github.com/stretchr/testify
+
 
 // Additional notes
 -u = get latest package
